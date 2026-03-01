@@ -2,97 +2,143 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>AgentWatch - The Missing Monitor for AI Agents</title>
+  <title>AgentWatch - Mission Control for AI Agents</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
-    body { font-family: 'Inter', sans-serif; }
+    body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
     .font-mono { font-family: 'JetBrains Mono', monospace; }
-    .glow-text { text-shadow: 0 0 20px rgba(52, 211, 153, 0.5); }
   </style>
 </head>
-<body class="bg-gray-900 text-white overflow-x-hidden">
+<body class="bg-white text-gray-900 antialiased selection:bg-emerald-100 selection:text-emerald-900">
 
   <!-- Navbar -->
-  <nav class="flex justify-between items-center p-6 max-w-7xl mx-auto">
-    <div class="text-2xl font-bold font-mono tracking-tighter text-emerald-400">AGENTWATCH</div>
-    <div class="flex gap-6 text-sm font-semibold">
-      <a href="#features" class="hover:text-emerald-400 transition">Features</a>
-      <a href="#pricing" class="hover:text-emerald-400 transition">Pricing</a>
-      <a href="https://agentwatch-dashboard.onrender.com" class="text-emerald-400 hover:text-white transition">Login →</a>
+  <nav class="border-b border-gray-100 sticky top-0 bg-white/80 backdrop-blur-md z-50">
+    <div class="max-w-5xl mx-auto px-6 h-16 flex justify-between items-center">
+      <a href="#" class="font-mono font-bold text-lg tracking-tight text-gray-900 hover:text-emerald-600 transition-colors">
+        AgentWatch<span class="text-emerald-500">_</span>
+      </a>
+      <div class="flex items-center gap-6 text-sm font-medium text-gray-600">
+        <a href="#features" class="hover:text-gray-900 transition-colors">Features</a>
+        <a href="#docs" class="hover:text-gray-900 transition-colors">Docs</a>
+        <a href="https://github.com/tejasdessai01/agentwatch-app" target="_blank" class="hover:text-gray-900 transition-colors">GitHub</a>
+        <a href="https://agentwatch-dashboard.onrender.com" class="text-gray-900 hover:text-emerald-600 transition-colors ml-2">Login &rarr;</a>
+      </div>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <header class="py-20 px-6 text-center max-w-5xl mx-auto">
-    <h1 class="text-6xl font-extrabold tracking-tight mb-6 leading-tight">
-      Stop Running Your Agents <br>
-      <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400 glow-text">Blind.</span>
-    </h1>
-    <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
-      Real-time logs, cost tracking, and remote kill switches for your autonomous workforce.
-      Zero config. Just one line of code.
-    </p>
-    
-    <div class="flex justify-center gap-4 mb-16">
-      <a href="https://agentwatch-dashboard.onrender.com" class="bg-emerald-500 hover:bg-emerald-400 text-black font-bold py-4 px-8 rounded-lg text-lg transition shadow-lg shadow-emerald-500/20">
-        Start Monitoring Free
-      </a>
-      <a href="#docs" class="bg-gray-800 hover:bg-gray-700 border border-gray-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition">
-        Read Documentation
-      </a>
+  <!-- Hero Section -->
+  <header class="py-24 px-6 max-w-5xl mx-auto text-center sm:text-left grid md:grid-cols-2 gap-12 items-center">
+    <div>
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-medium mb-6 border border-emerald-100">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        v1.0 is Live
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 mb-6 leading-tight">
+        Monitor your autonomous workforce.
+      </h1>
+      <p class="text-lg text-gray-600 mb-8 leading-relaxed max-w-md">
+        Real-time logs, cost tracking, and kill switches for AI agents. 
+        Zero config. Add one line of code.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="https://agentwatch-dashboard.onrender.com" class="bg-gray-900 hover:bg-black text-white px-6 py-3 rounded-md font-medium text-sm transition-transform active:scale-95 text-center">
+          Start Monitoring
+        </a>
+        <div class="relative group">
+          <div class="absolute -inset-0.5 bg-gradient-to-r from-gray-200 to-gray-300 rounded-md blur opacity-30 group-hover:opacity-50 transition"></div>
+          <div class="relative flex items-center bg-white border border-gray-200 rounded-md px-4 py-3 font-mono text-sm text-gray-600 shadow-sm">
+            <span class="select-none text-gray-400 mr-2">$</span>
+            npm install agentwatch-client
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Code Demo -->
-    <div class="bg-black/50 backdrop-blur-md border border-gray-800 rounded-xl p-6 max-w-3xl mx-auto shadow-2xl text-left font-mono text-sm relative group">
-      <div class="flex gap-2 mb-4">
-        <div class="w-3 h-3 rounded-full bg-red-500"></div>
-        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+    <!-- Code Snippet Visual -->
+    <div class="relative group perspective-1000">
+      <div class="absolute -inset-1 bg-gradient-to-r from-emerald-500/20 to-blue-500/20 rounded-xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+      <div class="relative bg-gray-50 border border-gray-200 rounded-xl shadow-sm p-6 font-mono text-xs sm:text-sm overflow-hidden transform transition hover:scale-[1.01] duration-500">
+        <div class="flex gap-1.5 mb-4 opacity-50">
+          <div class="w-2.5 h-2.5 rounded-full bg-gray-300"></div>
+          <div class="w-2.5 h-2.5 rounded-full bg-gray-300"></div>
+          <div class="w-2.5 h-2.5 rounded-full bg-gray-300"></div>
+        </div>
+        <div class="space-y-1 text-gray-800">
+          <div><span class="text-purple-600">const</span> watcher = <span class="text-blue-600">require</span>(<span class="text-green-600">'agentwatch'</span>);</div>
+          <div class="h-2"></div>
+          <div class="text-gray-400">// Initialize monitor</div>
+          <div>watcher({</div>
+          <div class="pl-4">id: <span class="text-green-600">'trader-bot-01'</span>,</div>
+          <div class="pl-4">token: <span class="text-green-600">'sk_live_...'</span></div>
+          <div>});</div>
+          <div class="h-2"></div>
+          <div class="text-gray-400">// Log events</div>
+          <div>watcher.log(<span class="text-green-600">'Trade executed: +$45.20'</span>);</div>
+        </div>
       </div>
-      <div class="text-gray-400 mb-2"># 1. Install</div>
-      <div class="text-white mb-6">$ npm install agentwatch-client</div>
-      
-      <div class="text-gray-400 mb-2"># 2. Add to Agent</div>
-      <div class="text-blue-300">const</div> <div class="inline text-yellow-300">watcher</div> = <div class="inline text-green-300">require</div>(<div class="inline text-orange-300">'agentwatch'</div>)({ 
-        <div class="inline text-purple-300">token</div>: <div class="inline text-orange-300">'YOUR_KEY'</div> 
-      });
-      <br><br>
-      <div class="text-gray-500">// Your agent is now visible on the dashboard.</div>
     </div>
   </header>
 
-  <!-- Features -->
-  <section id="features" class="py-20 bg-gray-800/30">
-    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
-      <div class="p-8 bg-gray-800 rounded-2xl border border-gray-700 hover:border-emerald-500/50 transition">
-        <div class="text-4xl mb-4">💸</div>
-        <h3 class="text-xl font-bold mb-2">Cost Intelligence</h3>
-        <p class="text-gray-400">Track token burn rate in real-time. Set budget alerts before your agent spends $500 overnight.</p>
+  <!-- Features Grid -->
+  <section id="features" class="py-24 bg-gray-50 border-t border-gray-100">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="mb-16">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Why monitor agents?</h2>
+        <p class="text-gray-600 max-w-2xl">Autonomous agents can loop indefinitely, hallucinate, or burn through API credits in minutes. AgentWatch gives you visibility and control.</p>
       </div>
-      <div class="p-8 bg-gray-800 rounded-2xl border border-gray-700 hover:border-emerald-500/50 transition">
-        <div class="text-4xl mb-4">🛑</div>
-        <h3 class="text-xl font-bold mb-2">Remote Kill Switch</h3>
-        <p class="text-gray-400">Agent hallucinating? Stuck in a loop? Terminate it instantly from the web dashboard.</p>
-      </div>
-      <div class="p-8 bg-gray-800 rounded-2xl border border-gray-700 hover:border-emerald-500/50 transition">
-        <div class="text-4xl mb-4">📜</div>
-        <h3 class="text-xl font-bold mb-2">Live Logs</h3>
-        <p class="text-gray-400">Stream logs from any server to one place. No more SSHing into 5 different boxes.</p>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div class="bg-white p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-10 h-10 bg-emerald-50 rounded-lg flex items-center justify-center text-emerald-600 mb-4">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <h3 class="font-bold text-gray-900 mb-2">Cost Tracking</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            Monitor token usage and spend in real-time. Set hard limits to prevent runaway API bills.
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="bg-white p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600 mb-4">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          </div>
+          <h3 class="font-bold text-gray-900 mb-2">Live Streaming</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            See what your agent is "thinking" as it happens. Stream logs directly to your dashboard.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="bg-white p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-10 h-10 bg-red-50 rounded-lg flex items-center justify-center text-red-600 mb-4">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path></svg>
+          </div>
+          <h3 class="font-bold text-gray-900 mb-2">Kill Switch</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            Terminate rogue agents instantly from the UI. No need to SSH into servers to kill processes.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-24 text-center">
-    <h2 class="text-4xl font-bold mb-6">Ready to take control?</h2>
-    <a href="https://agentwatch-dashboard.onrender.com" class="inline-block bg-white text-black font-bold py-4 px-10 rounded-full text-xl hover:scale-105 transition transform">
-      Get Your API Key
-    </a>
-  </section>
-
-  <footer class="border-t border-gray-800 py-10 text-center text-gray-500 text-sm">
-    &copy; 2026 AgentWatch Inc. Built for OpenClaw.
+  <!-- Footer -->
+  <footer class="bg-white py-12 px-6 border-t border-gray-100">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+      <div class="mb-4 md:mb-0">
+        &copy; 2026 AgentWatch Inc.
+      </div>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-gray-900 transition-colors">Privacy</a>
+        <a href="#" class="hover:text-gray-900 transition-colors">Terms</a>
+        <a href="https://github.com/tejasdessai01/agentwatch-app" class="hover:text-gray-900 transition-colors">Open Source</a>
+      </div>
+    </div>
   </footer>
 
 </body>
