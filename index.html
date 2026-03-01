@@ -1,314 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgentWatch - Real-Time AI Agent Monitoring</title>
-    <meta name="description" content="See everything your AI agents are doing. Stop burning money in your sleep.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        .glow {
-            box-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>AgentWatch - The Missing Monitor for AI Agents</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    .glow-text { text-shadow: 0 0 20px rgba(52, 211, 153, 0.5); }
+  </style>
 </head>
-<body class="bg-gray-50">
-    <!-- Hero Section -->
-    <div class="gradient-bg text-white">
-        <div class="max-w-4xl mx-auto px-6 py-16 md:py-24">
-            <div class="text-center">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                    See Everything Your<br/>AI Agents Are Doing
-                </h1>
-                <p class="text-xl md:text-2xl mb-8 text-gray-100">
-                    Real-time monitoring dashboard for multi-agent systems.<br/>
-                    Stop burning money in your sleep.
-                </p>
-                
-                <!-- Email Signup Form -->
-                <div class="max-w-md mx-auto">
-                    <form id="signup-form" class="flex flex-col sm:flex-row gap-3">
-                        <input 
-                            type="email" 
-                            id="email"
-                            placeholder="your@email.com" 
-                            required
-                            class="flex-1 px-6 py-4 rounded-lg text-gray-900 text-lg focus:outline-none focus:ring-4 focus:ring-purple-300"
-                        />
-                        <button 
-                            type="submit"
-                            class="px-8 py-4 bg-white text-purple-600 font-bold text-lg rounded-lg hover:bg-gray-100 transition glow"
-                        >
-                            Get Early Access
-                        </button>
-                    </form>
-                    <p class="text-sm text-gray-200 mt-3">
-                        ✨ Free for first 100 users · No credit card required
-                    </p>
-                    <div id="success-message" class="hidden mt-4 p-4 bg-green-500 text-white rounded-lg">
-                        🎉 You're on the list! We'll email you when we launch.
-                    </div>
-                    <div id="count-message" class="mt-4 text-gray-200 text-sm">
-                        <span id="signup-count">0</span> people already signed up
-                    </div>
-                </div>
-            </div>
-        </div>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center p-6 max-w-7xl mx-auto">
+    <div class="text-2xl font-bold font-mono tracking-tighter text-emerald-400">AGENTWATCH</div>
+    <div class="flex gap-6 text-sm font-semibold">
+      <a href="#features" class="hover:text-emerald-400 transition">Features</a>
+      <a href="#pricing" class="hover:text-emerald-400 transition">Pricing</a>
+      <a href="https://agentwatch-dashboard.onrender.com" class="text-emerald-400 hover:text-white transition">Login →</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="py-20 px-6 text-center max-w-5xl mx-auto">
+    <h1 class="text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+      Stop Running Your Agents <br>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400 glow-text">Blind.</span>
+    </h1>
+    <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+      Real-time logs, cost tracking, and remote kill switches for your autonomous workforce.
+      Zero config. Just one line of code.
+    </p>
+    
+    <div class="flex justify-center gap-4 mb-16">
+      <a href="https://agentwatch-dashboard.onrender.com" class="bg-emerald-500 hover:bg-emerald-400 text-black font-bold py-4 px-8 rounded-lg text-lg transition shadow-lg shadow-emerald-500/20">
+        Start Monitoring Free
+      </a>
+      <a href="#docs" class="bg-gray-800 hover:bg-gray-700 border border-gray-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition">
+        Read Documentation
+      </a>
     </div>
 
-    <!-- Problem Section -->
-    <div class="max-w-6xl mx-auto px-6 py-16">
-        <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">
-            The Problem We're Solving
-        </h2>
-        
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-lg shadow-lg">
-                <div class="text-4xl mb-4">🙈</div>
-                <h3 class="text-xl font-bold mb-3 text-gray-900">Zero Visibility</h3>
-                <p class="text-gray-600">
-                    You spawn 5 agents. What are they doing right now? 
-                    Are they stuck? Making progress? You have no idea.
-                </p>
-            </div>
-            
-            <div class="bg-white p-8 rounded-lg shadow-lg">
-                <div class="text-4xl mb-4">💸</div>
-                <h3 class="text-xl font-bold mb-3 text-gray-900">Surprise Bills</h3>
-                <p class="text-gray-600">
-                    Agent runs overnight. Next morning: $347 API bill. 
-                    No warning. No way to stop it.
-                </p>
-            </div>
-            
-            <div class="bg-white p-8 rounded-lg shadow-lg">
-                <div class="text-4xl mb-4">🔥</div>
-                <h3 class="text-xl font-bold mb-3 text-gray-900">No Control</h3>
-                <p class="text-gray-600">
-                    Agent goes rogue. You want to stop it. 
-                    No kill switch. Just hope and pray.
-                </p>
-            </div>
-        </div>
+    <!-- Code Demo -->
+    <div class="bg-black/50 backdrop-blur-md border border-gray-800 rounded-xl p-6 max-w-3xl mx-auto shadow-2xl text-left font-mono text-sm relative group">
+      <div class="flex gap-2 mb-4">
+        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+      </div>
+      <div class="text-gray-400 mb-2"># 1. Install</div>
+      <div class="text-white mb-6">$ npm install agentwatch-client</div>
+      
+      <div class="text-gray-400 mb-2"># 2. Add to Agent</div>
+      <div class="text-blue-300">const</div> <div class="inline text-yellow-300">watcher</div> = <div class="inline text-green-300">require</div>(<div class="inline text-orange-300">'agentwatch'</div>)({ 
+        <div class="inline text-purple-300">token</div>: <div class="inline text-orange-300">'YOUR_KEY'</div> 
+      });
+      <br><br>
+      <div class="text-gray-500">// Your agent is now visible on the dashboard.</div>
     </div>
+  </header>
 
-    <!-- Solution Section -->
-    <div class="bg-gray-100 py-16">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">
-                AgentWatch: Your Agent Control Tower
-            </h2>
-            
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-4">
-                            <div class="text-2xl">🟢</div>
-                            <div>
-                                <h3 class="font-bold text-lg mb-2">Real-Time Status</h3>
-                                <p class="text-gray-600">See every agent's status instantly. Running, paused, complete, or failed.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start gap-4">
-                            <div class="text-2xl">💰</div>
-                            <div>
-                                <h3 class="font-bold text-lg mb-2">Cost Tracking</h3>
-                                <p class="text-gray-600">Track spend down to the penny. Get alerts at 50%, 90%, 100% of budget. Auto-pause to prevent overages.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start gap-4">
-                            <div class="text-2xl">📊</div>
-                            <div>
-                                <h3 class="font-bold text-lg mb-2">Live Progress</h3>
-                                <p class="text-gray-600">Progress bars, streaming logs, token usage. Know exactly what's happening.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start gap-4">
-                            <div class="text-2xl">🎮</div>
-                            <div>
-                                <h3 class="font-bold text-lg mb-2">Full Control</h3>
-                                <p class="text-gray-600">Pause, kill, or steer any agent from one dashboard. Emergency stop button included.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-900 rounded-lg p-6 text-white shadow-2xl">
-                    <div class="text-sm text-gray-400 mb-4">AgentWatch Dashboard</div>
-                    <div class="space-y-3">
-                        <div class="bg-green-900 p-4 rounded border-l-4 border-green-500">
-                            <div class="flex justify-between items-start mb-2">
-                                <div>
-                                    <div class="font-semibold">🟢 Research Agent</div>
-                                    <div class="text-xs text-gray-400">claude-3-opus • 23m ago</div>
-                                </div>
-                                <div class="text-right">
-                                    <div class="font-mono text-sm">$2.47</div>
-                                    <div class="text-xs text-gray-400">12.5K tokens</div>
-                                </div>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2">
-                                <div class="bg-green-500 h-2 rounded-full" style="width: 67%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-blue-900 p-4 rounded border-l-4 border-blue-500">
-                            <div class="flex justify-between items-start mb-2">
-                                <div>
-                                    <div class="font-semibold">🟢 Writing Agent</div>
-                                    <div class="text-xs text-gray-400">gpt-4 • 5m ago</div>
-                                </div>
-                                <div class="text-right">
-                                    <div class="font-mono text-sm">$0.89</div>
-                                    <div class="text-xs text-gray-400">3.2K tokens</div>
-                                </div>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2">
-                                <div class="bg-blue-500 h-2 rounded-full" style="width: 34%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-gray-800 p-4 rounded border-l-4 border-gray-600">
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <div class="font-semibold">⚫ Testing Agent</div>
-                                    <div class="text-xs text-gray-400">Complete • 1h ago</div>
-                                </div>
-                                <div class="text-right">
-                                    <div class="font-mono text-sm">$1.23</div>
-                                    <div class="text-xs text-gray-400">5.1K tokens</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-4 p-3 bg-purple-900 rounded">
-                        <div class="text-xs text-gray-300 mb-1">Cost Today</div>
-                        <div class="text-2xl font-bold">$4.59 <span class="text-sm text-gray-400">/ $10 budget</span></div>
-                        <div class="text-xs text-gray-400 mt-1">Burn rate: $0.23/hr → $5.52/day</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <!-- Features -->
+  <section id="features" class="py-20 bg-gray-800/30">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+      <div class="p-8 bg-gray-800 rounded-2xl border border-gray-700 hover:border-emerald-500/50 transition">
+        <div class="text-4xl mb-4">💸</div>
+        <h3 class="text-xl font-bold mb-2">Cost Intelligence</h3>
+        <p class="text-gray-400">Track token burn rate in real-time. Set budget alerts before your agent spends $500 overnight.</p>
+      </div>
+      <div class="p-8 bg-gray-800 rounded-2xl border border-gray-700 hover:border-emerald-500/50 transition">
+        <div class="text-4xl mb-4">🛑</div>
+        <h3 class="text-xl font-bold mb-2">Remote Kill Switch</h3>
+        <p class="text-gray-400">Agent hallucinating? Stuck in a loop? Terminate it instantly from the web dashboard.</p>
+      </div>
+      <div class="p-8 bg-gray-800 rounded-2xl border border-gray-700 hover:border-emerald-500/50 transition">
+        <div class="text-4xl mb-4">📜</div>
+        <h3 class="text-xl font-bold mb-2">Live Logs</h3>
+        <p class="text-gray-400">Stream logs from any server to one place. No more SSHing into 5 different boxes.</p>
+      </div>
     </div>
+  </section>
 
-    <!-- Use Cases -->
-    <div class="max-w-6xl mx-auto px-6 py-16">
-        <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">
-            Who Uses AgentWatch?
-        </h2>
-        
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="text-center">
-                <div class="text-5xl mb-4">👨‍💻</div>
-                <h3 class="font-bold text-xl mb-3">Developers</h3>
-                <p class="text-gray-600">
-                    Using OpenClaw, CrewAI, AutoGPT to build products
-                </p>
-            </div>
-            
-            <div class="text-center">
-                <div class="text-5xl mb-4">🏢</div>
-                <h3 class="font-bold text-xl mb-3">Teams</h3>
-                <p class="text-gray-600">
-                    Running multi-agent workflows in production
-                </p>
-            </div>
-            
-            <div class="text-center">
-                <div class="text-5xl mb-4">🔬</div>
-                <h3 class="font-bold text-xl mb-3">Researchers</h3>
-                <p class="text-gray-600">
-                    Experimenting with agent orchestration
-                </p>
-            </div>
-        </div>
-    </div>
+  <!-- CTA -->
+  <section class="py-24 text-center">
+    <h2 class="text-4xl font-bold mb-6">Ready to take control?</h2>
+    <a href="https://agentwatch-dashboard.onrender.com" class="inline-block bg-white text-black font-bold py-4 px-10 rounded-full text-xl hover:scale-105 transition transform">
+      Get Your API Key
+    </a>
+  </section>
 
-    <!-- CTA Section -->
-    <div class="gradient-bg text-white py-16">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                Be the First to Try AgentWatch
-            </h2>
-            <p class="text-xl mb-8 text-gray-100">
-                Launching in 2 weeks. First 100 users get lifetime free access.
-            </p>
-            
-            <div class="max-w-md mx-auto">
-                <form id="signup-form-bottom" class="flex flex-col sm:flex-row gap-3">
-                    <input 
-                        type="email" 
-                        placeholder="your@email.com" 
-                        required
-                        class="flex-1 px-6 py-4 rounded-lg text-gray-900 text-lg focus:outline-none focus:ring-4 focus:ring-purple-300"
-                    />
-                    <button 
-                        type="submit"
-                        class="px-8 py-4 bg-white text-purple-600 font-bold text-lg rounded-lg hover:bg-gray-100 transition glow"
-                    >
-                        Reserve Your Spot
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
+  <footer class="border-t border-gray-800 py-10 text-center text-gray-500 text-sm">
+    &copy; 2026 AgentWatch Inc. Built for OpenClaw.
+  </footer>
 
-    <!-- Footer -->
-    <div class="bg-gray-900 text-gray-400 py-8">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <p>AgentWatch © 2026 • Built for the agent era</p>
-            <p class="text-sm mt-2">Questions? Email hello@agentwatch.dev</p>
-        </div>
-    </div>
-
-    <script>
-        // Simple local storage counter + form handling
-        let signupCount = parseInt(localStorage.getItem('agentwatch_signups') || '0');
-        
-        function updateCount() {
-            document.getElementById('signup-count').textContent = signupCount;
-        }
-        
-        function handleSignup(e) {
-            e.preventDefault();
-            const email = e.target.querySelector('input[type="email"]').value;
-            
-            // Save to localStorage (in production, send to backend)
-            const signups = JSON.parse(localStorage.getItem('agentwatch_emails') || '[]');
-            if (!signups.includes(email)) {
-                signups.push(email);
-                localStorage.setItem('agentwatch_emails', JSON.stringify(signups));
-                signupCount++;
-                localStorage.setItem('agentwatch_signups', signupCount.toString());
-                updateCount();
-            }
-            
-            // Show success message
-            document.getElementById('success-message').classList.remove('hidden');
-            e.target.reset();
-            
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                document.getElementById('success-message').classList.add('hidden');
-            }, 5000);
-            
-            // In production, send to backend:
-            // fetch('/api/signup', { method: 'POST', body: JSON.stringify({ email }) });
-        }
-        
-        document.getElementById('signup-form').addEventListener('submit', handleSignup);
-        document.getElementById('signup-form-bottom').addEventListener('submit', handleSignup);
-        
-        updateCount();
-    </script>
 </body>
 </html>
